@@ -47,21 +47,21 @@ router.post('/doctype', async (req, res) => {
     });
 });
 
-router.put('/doctype', async (req, res) => {
-  const { language } = req.headers;
-  const { _id, kaz, rus, countryId } = req.body;
-  const filter = { _id };
-  const update = {
-    kaz,
-    rus,
-    countryId,
-  };
+// router.put('/doctype', async (req, res) => {
+//   const { language } = req.headers;
+//   const { _id, kaz, rus, countryId } = req.body;
+//   const filter = { _id };
+//   const update = {
+//     kaz,
+//     rus,
+//     countryId,
+//   };
 
-  await DocType.findOneAndUpdate(filter, update, { new: true })
-    .then(() => res.json({ success: true }))
-    .catch((err) =>
-      res.status(400).json({ success: false, error: error(400, language) })
-    );
-});
+//   await DocType.findOneAndUpdate(filter, update, { new: true })
+//     .then(() => res.json({ success: true }))
+//     .catch((err) =>
+//       res.status(400).json({ success: false, error: error(400, language) })
+//     );
+// });
 
 module.exports = router;
